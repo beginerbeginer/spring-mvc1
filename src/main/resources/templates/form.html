@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+
+<body>
+	<form th:action="@{/form}" th:object="${user}" method="post"> <!-- th:object：フォームにバインドするオブジェクトを設定します。 -->
+		<label for="name">氏名：</label>                           <!-- 今回は、コントローラ側で用意した“user”オブジェクトを設定しています。 -->
+		<input type="text" th:field="*{name}"><br>                <!-- *{フィールド名}は選択変数式で、th:objectが付いたタグ内では、オブジェクト名を省略できます。 -->
+                                                                  <!-- th:objectを使用しない場合、以下のように ${オブジェクト名.フィールド名}を指定する必要があります。 -->
+		<label for="email">E-mail：</label> 
+		<input type="email" th:field="*{email}"><br> 
+		
+		<label for="age">年齢：</label>
+		<input type="number" th:field="*{age}"><br>
+
+		<button>送信</button>
+	</form>
+</body>
+</html>
